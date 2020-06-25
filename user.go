@@ -11,6 +11,7 @@ import (
 
 func doCreateUser(ctx context.Context, user *sdk.User, pin string) *sdk.User {
 	privateKey, err := rsa.GenerateKey(rand.Reader, 1024)
+	//fmt.Println("                                 ",privateKey)
 	if err != nil {
 		log.Panicln(err)
 	}

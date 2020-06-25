@@ -7,6 +7,8 @@ import (
 	sdk "github.com/fox-one/mixin-sdk"
 )
 
+//Read asset fee by asset_id.
+//按asset_id读取资产费用。
 func doAssetFee(ctx context.Context, user *sdk.User) {
 	assetID := "43d61dcd-e413-450d-80b8-101d5e903357"
 	fee, err := user.ReadAssetFee(ctx, assetID)
@@ -20,7 +22,7 @@ func doAssetFee(ctx context.Context, user *sdk.User) {
 	}
 
 	if len(fee.Amount) == 0 {
-		log.Panicln("empty fee amount")
+		log.Panicln("empty fee amount") //没有剩余金额
 	}
 }
 //判断地址是否有效

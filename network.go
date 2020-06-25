@@ -8,6 +8,7 @@ import (
 )
 
 func doReadNetworkInfo(ctx context.Context) {
+	//读取mixin网络
 	network, err := sdk.ReadNetworkInfo(ctx)
 	if err != nil {
 		log.Panicln(err)

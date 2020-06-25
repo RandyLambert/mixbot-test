@@ -9,6 +9,7 @@ import (
 )
 
 func doTransaction(ctx context.Context, user *sdk.User, assetID, opponentKey, amount, memo, pin string) {
+	//做交易到mixin主网
 	snapshot, err := user.Transaction(ctx, &sdk.TransferInput{
 		TraceID:     uuid.Must(uuid.NewV4()).String(),
 		AssetID:     assetID,
@@ -40,8 +41,9 @@ func doTransfer(ctx context.Context, user *sdk.User, assetID, opponentID, amount
 	printJSON("do transfer", snapshot)
 	return snapshot
 }
-
+//提现函数
 func doWithdraw(ctx context.Context, user *sdk.User, assetID, publicKey, amount, memo, pin string) *sdk.Snapshot {
+	//创建提款地址
 	addrID := doCreateAddress(ctx, user, assetID, publicKey, "Test Withdraw", pin)
 
 	snapshot, err := user.Withdraw(ctx, &sdk.TransferInput{
@@ -55,7 +57,7 @@ func doWithdraw(ctx context.Context, user *sdk.User, assetID, publicKey, amount,
 		log.Panicln(err)
 	}
 	printJSON("do withdraw", snapshot)
-
+	//删除提款地址
 	doDeleteAddress(ctx, user, addrID, pin)
 	return snapshot
 }

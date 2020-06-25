@@ -16,6 +16,7 @@ func doAddress(ctx context.Context, user *sdk.User, assetID, publicKey, label, p
 }
 
 func doCreateAddress(ctx context.Context, user *sdk.User, assetID, publicKey, label, pin string) string {
+	// CreateWithdrawAddress创建提现地址
 	addr, err := user.CreateWithdrawAddress(ctx, sdk.WithdrawAddress{
 		AssetID:     assetID,
 		Destination: publicKey,
