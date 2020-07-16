@@ -11,6 +11,7 @@ import (
 //按asset_id读取资产费用。
 func doAssetFee(ctx context.Context, user *sdk.User) {
 	assetID := "43d61dcd-e413-450d-80b8-101d5e903357"
+	//assetID := USDT
 	fee, err := user.ReadAssetFee(ctx, assetID)
 	if err != nil {
 		log.Panicln(err)
@@ -37,7 +38,8 @@ func validateAsset(asset *sdk.Asset) {
 }
 
 func doAsset(ctx context.Context, user *sdk.User) string {
-	assetID := "965e5c6e-434c-3fa9-b780-c50f43cd955c"
+	//assetID := "965e5c6e-434c-3fa9-b780-c50f43cd955c"
+	assetID := USDT
 	//ReadAsset get asset info, including balance, address info, etc.
 	//ReadAsset 获取资产信息，包括余额、地址信息等。
 	asset, err := user.ReadAsset(ctx, assetID)

@@ -2,9 +2,8 @@ package main
 
 import (
 	"context"
-	"encoding/base64"
+	"fmt"
 	"github.com/fox-one/mixin-sdk"
-	"github.com/gofrs/uuid"
 	jsoniter "github.com/json-iterator/go"
 	"github.com/spf13/viper"
 	"log"
@@ -70,27 +69,59 @@ func main() {
 
 	p := viper.GetString("mixin.PinCode") //为新创建的子bot设置的密码,和原来的设置的一样
 	u := doCreateUser(ctx, user, p) //创建子bot
+
 	doAssetFee(ctx, u) //通过asset_id读资产费用
 
 	publicKey1 := doAsset(ctx, u)//返回子地址的充值地址
 
 	doAssets(ctx, u) //返回多个充值地址
+	fmt.Println("test",string(publicKey1))
 
-
-	assetID := "965e5c6e-434c-3fa9-b780-c50f43cd955c" //cnb
+	//assetID := "965e5c6e-434c-3fa9-b780-c50f43cd955c" //cnb
+	assetID   := USDT
 	doTransfer(ctx, user, assetID, u.UserID, "0.0001", "ping", viper.GetString("mixin.PinCode"))// user转账给u
 	time.Sleep(time.Second * 5)
 	snap := doTransfer(ctx, u, assetID, user.UserID, "0.0001", "pong", p) // u转账给user
 
-	doWithdraw(ctx, user, assetID, publicKey1, "0.01", "ping", viper.GetString("mixin.PinCode")) //从user中提现到publicKey1
+	doWithdraw(ctx, user, assetID, publicKey1, "0.0001", "ping", viper.GetString("mixin.PinCode")) //从user中提现到publicKey1
 	time.Sleep(time.Second * 5)
-	doWithdraw(ctx, u, assetID, publicKey, "0.01", "pong", p) //从u中提现到publicKey
+	doWithdraw(ctx, u, assetID, publicKey, "0.0001", "pong", p) //从u中提现到publicKey
 
 	doReadNetwork(ctx)//?? 读的网络公共Snapshots
+	//{
+	//"snapshot_id": "09bc17ed-b825-4bd1-8d2c-0e12aa9a023f",
+	//"asset_id": "965e5c6e-434c-3fa9-b780-c50f43cd955c",
+	//"created_at": "2020-06-26T05:31:49.927382Z",
+	//"source": "TRANSFER_INITIALIZED",
+	//"amount": "-0.0001",
+	//"opening_balance": "0",
+	//"closing_balance": "0",
+	//"type": "snapshot",
+	//"asset": {
+	//"asset_id": "965e5c6e-434c-3fa9-b780-c50f43cd955c",
+	//"chain_id": "43d61dcd-e413-450d-80b8-101d5e903357",
+	//"asset_key": "0xec2a0550a2e4da2a027b3fc06f70ba15a94a6dac",
+	//"symbol": "CNB",
+	//"name": "Chui Niu Bi",
+	//"icon_url": "https://mixin-images.zeromesh.net/0sQY63dDMkWTURkJVjowWY6Le4ICjAFuu3ANVyZA4uI3UdkbuOT5fjJUT82ArNYmZvVcxDXyNjxoOv0TAYbQTNKS=s128",
+	//"price_usd": "0",
+	//"change_usd": "0",
+	//"balance": "0"
+	//}
 	doUserReadNetwork(ctx, u) //?? 读u的网络公共的Snapshots
 	doReadSnapshots(ctx, user) // 读user的snapshots,区别是信息量不同??
 
 	doReadSnapshot(ctx, u, snap.SnapshotID) //按照snapshotid读取snapshot信息
+	//"snapshot_id": "89ccf495-7db2-4825-8617-bf5b4ec5da4d",
+	//"trace_id": "c7b9ec04-8c88-40fc-87c4-bd2772b723b6",
+	//"asset_id": "815b0b1a-2764-3736-8faa-42d694fa620a",
+	//"opponent_id": "a39c3ffc-c308-4c12-b117-fb7410cdbb43",
+	//"created_at": "2020-06-26T05:36:16.611716Z",
+	//"source": "",
+	//"amount": "-0.0001",
+	//"opening_balance": "0.0001",
+	//"closing_balance": "0",
+	//"type": "transfer"
 
 	doReadTransfer(ctx, u, snap.TraceID) //按照TraceID读取snapshot信息
 
@@ -98,18 +129,18 @@ func main() {
 
 	doReadNetworkInfo(ctx) //读取网络信息???
 	//做交易???
-	doTransaction(ctx, user, "965e5c6e-434c-3fa9-b780-c50f43cd955c", "XINT55hZYxzrtqJsWViUbyoxytJ6RoKUZfpnSCQTbgX8fjcdQ7GwjRySLxiPMWxAMhoN6KPa7SFkyv9FQXC3fGJuKHLf3est", "1", "test", viper.GetString("mixin.PinCode"))
+	doTransaction(ctx, user, USDT/*"965e5c6e-434c-3fa9-b780-c50f43cd955c"*/, "XINT55hZYxzrtqJsWViUbyoxytJ6RoKUZfpnSCQTbgX8fjcdQ7GwjRySLxiPMWxAMhoN6KPa7SFkyv9FQXC3fGJuKHLf3est", "0.0001", "test", viper.GetString("mixin.PinCode"))
 
 	// Messenger
 
-	conversation := doCreateConversation(ctx, user)//创建会话,测试发送信息类型的消息??
-	doMessage(ctx, user, &mixin.MessageRequest{
-		ConversationID: conversation.ConversationID,
-		MessageID:      uuid.Must(uuid.NewV4()).String(),
-		Category:       "PLAIN_TEXT",
-		Data:           base64.StdEncoding.EncodeToString([]byte("Just A Test")),
-	})
-	doReadConversation(ctx, user, conversation.ConversationID)
+	//conversation := doCreateConversation(ctx, user)//创建会话,测试发送信息类型的消息??
+	//doMessage(ctx, user, &mixin.MessageRequest{
+	//	ConversationID: conversation.ConversationID,
+	//	MessageID:      uuid.Must(uuid.NewV4()).String(),
+	//	Category:       "PLAIN_TEXT",
+	//	Data:           base64.StdEncoding.EncodeToString([]byte("Just A Test")),
+	//})
+	//doReadConversation(ctx, user, conversation.ConversationID)
 
 	Handler{}.Run(ctx, user)
 }
