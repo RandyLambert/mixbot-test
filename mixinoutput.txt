@@ -20,7 +20,7 @@
 }
 2020/06/29 13:50:02 modify PIN succ
 2020/06/29 13:50:03 verify PIN succ
-2020/06/29 13:50:04 asset fee {
+2020/06/29 13:50:04 asset fee { //查询资产有多少剩余
     "asset_id": "43d61dcd-e413-450d-80b8-101d5e903357",
     "amount": "0.01"
 }

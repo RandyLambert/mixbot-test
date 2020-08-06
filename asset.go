@@ -8,10 +8,10 @@ import (
 )
 
 //Read asset fee by asset_id.
-//按asset_id读取资产费用。
+//按asset_id读取资产有多少剩余。
 func doAssetFee(ctx context.Context, user *sdk.User) {
-	assetID := "43d61dcd-e413-450d-80b8-101d5e903357"
-	//assetID := USDT
+	//assetID := ETH
+	assetID := USDT
 	fee, err := user.ReadAssetFee(ctx, assetID)
 	if err != nil {
 		log.Panicln(err)

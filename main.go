@@ -2,13 +2,14 @@ package main
 
 import (
 	"context"
-	"fmt"
 	"github.com/fox-one/mixin-sdk"
 	jsoniter "github.com/json-iterator/go"
 	"github.com/spf13/viper"
 	"log"
 	"os"
 	"time"
+
+	//"time"
 )
 
 //按照json格式输出
@@ -70,12 +71,12 @@ func main() {
 	p := viper.GetString("mixin.PinCode") //为新创建的子bot设置的密码,和原来的设置的一样
 	u := doCreateUser(ctx, user, p) //创建子bot
 
-	doAssetFee(ctx, u) //通过asset_id读资产费用
+	//doAssetFee(ctx, u) //通过asset_id读资产费用
 
 	publicKey1 := doAsset(ctx, u)//返回子地址的充值地址
 
-	doAssets(ctx, u) //返回多个充值地址
-	fmt.Println("test",string(publicKey1))
+	//doAssets(ctx, u) //返回多个充值地址
+	//fmt.Println("test",string(publicKey1))
 
 	//assetID := "965e5c6e-434c-3fa9-b780-c50f43cd955c" //cnb
 	assetID   := USDT
@@ -87,7 +88,7 @@ func main() {
 	time.Sleep(time.Second * 5)
 	doWithdraw(ctx, u, assetID, publicKey, "0.0001", "pong", p) //从u中提现到publicKey
 
-	doReadNetwork(ctx)//?? 读的网络公共Snapshots
+	//doReadNetwork(ctx)//?? 读的网络公共Snapshots
 	//{
 	//"snapshot_id": "09bc17ed-b825-4bd1-8d2c-0e12aa9a023f",
 	//"asset_id": "965e5c6e-434c-3fa9-b780-c50f43cd955c",
@@ -108,10 +109,10 @@ func main() {
 	//"change_usd": "0",
 	//"balance": "0"
 	//}
-	doUserReadNetwork(ctx, u) //?? 读u的网络公共的Snapshots
-	doReadSnapshots(ctx, user) // 读user的snapshots,区别是信息量不同??
+	doUserReadNetwork(ctx, user) //?? 读u的网络公共的Snapshots
+	//doReadSnapshots(ctx, user) // 读user的snapshots,区别是信息量不同??
 
-	doReadSnapshot(ctx, u, snap.SnapshotID) //按照snapshotid读取snapshot信息
+	//doReadSnapshot(ctx, u, snap.SnapshotID) //按照snapshotid读取snapshot信息
 	//"snapshot_id": "89ccf495-7db2-4825-8617-bf5b4ec5da4d",
 	//"trace_id": "c7b9ec04-8c88-40fc-87c4-bd2772b723b6",
 	//"asset_id": "815b0b1a-2764-3736-8faa-42d694fa620a",
@@ -125,11 +126,11 @@ func main() {
 
 	doReadTransfer(ctx, u, snap.TraceID) //按照TraceID读取snapshot信息
 
-	doReadExternal(ctx)
+	//doReadExternal(ctx)
 
-	doReadNetworkInfo(ctx) //读取网络信息???
+	//doReadNetworkInfo(ctx) //读取网络信息???
 	//做交易???
-	doTransaction(ctx, user, USDT/*"965e5c6e-434c-3fa9-b780-c50f43cd955c"*/, "XINT55hZYxzrtqJsWViUbyoxytJ6RoKUZfpnSCQTbgX8fjcdQ7GwjRySLxiPMWxAMhoN6KPa7SFkyv9FQXC3fGJuKHLf3est", "0.0001", "test", viper.GetString("mixin.PinCode"))
+	//doTransaction(ctx, user, USDT/*"965e5c6e-434c-3fa9-b780-c50f43cd955c"*/, "XINT55hZYxzrtqJsWViUbyoxytJ6RoKUZfpnSCQTbgX8fjcdQ7GwjRySLxiPMWxAMhoN6KPa7SFkyv9FQXC3fGJuKHLf3est", "0.0001", "test", viper.GetString("mixin.PinCode"))
 
 	// Messenger
 

@@ -24,7 +24,7 @@ func doTransaction(ctx context.Context, user *sdk.User, assetID, opponentKey, am
 }
 
 func doTransfer(ctx context.Context, user *sdk.User, assetID, opponentID, amount, memo, pin string) *sdk.Snapshot {
-
+	//opponentid是转给谁
 	// Transfer transfer to account
 	//	asset_id, opponent_id, amount, traceID, memo
 	// 把该user的钱转账到该账户返回快照

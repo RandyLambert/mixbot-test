@@ -1,0 +1,215 @@
+2020/07/17 17:52:54 created user {
+    "user_id": "765bc0b1-c86d-39e0-a86f-9e51b1211d80",
+    "session_id": "97ea14d9-1e7c-4068-890a-ebf96e2818de",
+    "pin_token": "KaAYt+XDZNNefzWB23OnfjFeKsal+dX7q0NEzSZRkOChXqMCvTB4A176pcXL1fMc3vtnt9z59SEM5960ODKHoBkHQ3u4TwcfjQPcX4oCIbDKpbrFQzbUahdRjul/II94Jn67awNMdCdp88k8rbCaAxFPaZHjmruVta3VDYbAZow=",
+    "session_key": "",
+    "full_name": "test tset"
+}
+2020/07/17 17:52:55 modify PIN succ
+2020/07/17 17:52:55 verify PIN succ
+2020/07/17 17:52:56 asset {
+    "asset_id": "815b0b1a-2764-3736-8faa-42d694fa620a",
+    "chain_id": "c6d0c728-2624-429b-8e0d-d9d19b6592fa",
+    "asset_key": "815b0b1a-2764-3736-8faa-42d694fa620a",
+    "symbol": "USDT",
+    "name": "Tether USD",
+    "icon_url": "https://mixin-images.zeromesh.net/ndNBEpObYs7450U08oAOMnSEPzN66SL8Mh-f2pPWBDeWaKbXTPUIdrZph7yj8Z93Rl8uZ16m7Qjz-E-9JFKSsJ-F=s128",
+    "confirmations": 3,
+    "price_usd": "1",
+    "change_usd": "0",
+    "balance": "0",
+    "destination": "1D1mL9fqAGKb7RoLosaq8xtS2E3HToF6PE"
+}
+2020/07/17 17:52:56 do transfer {
+    "snapshot_id": "1d127900-1a5b-4e0a-b31e-9884f3cb6f09",
+    "trace_id": "41750c5a-60d6-41d4-a12d-c662b6077a14",
+    "asset_id": "815b0b1a-2764-3736-8faa-42d694fa620a",
+    "opponent_id": "765bc0b1-c86d-39e0-a86f-9e51b1211d80",
+    "created_at": "2020-07-17T09:52:56.720876Z",
+    "source": "",
+    "amount": "-0.0001",
+    "opening_balance": "0.3095",
+    "closing_balance": "0.3094",
+    "data": "ping",
+    "type": "transfer"
+}
+2020/07/17 17:53:03 do transfer {
+    "snapshot_id": "7d49c894-e057-4e6a-b49c-261dfbfe98d1",
+    "trace_id": "8beee967-75c0-4c77-ac49-e70a198289de",
+    "asset_id": "815b0b1a-2764-3736-8faa-42d694fa620a",
+    "opponent_id": "a39c3ffc-c308-4c12-b117-fb7410cdbb43",
+    "created_at": "2020-07-17T09:53:02.258849Z",
+    "source": "",
+    "amount": "-0.0001",
+    "opening_balance": "0.0001",
+    "closing_balance": "0",
+    "data": "pong",
+    "type": "transfer"
+}
+2020/07/17 17:53:03 create withdraw address {
+    "address_id": "0400c69c-5725-48c6-88e5-ae235aee8e40",
+    "asset_id": "815b0b1a-2764-3736-8faa-42d694fa620a",
+    "label": "Test Withdraw",
+    "destination": "1D1mL9fqAGKb7RoLosaq8xtS2E3HToF6PE",
+    "fee": "0",
+    "dust": "0"
+}
+2020/07/17 17:53:04 do withdraw {
+    "snapshot_id": "87f61fd9-7f06-40c6-a5f4-0b6c989809c7",
+    "trace_id": "4274167d-0269-4fa3-aa0e-b69ad5d1881a",
+    "asset_id": "815b0b1a-2764-3736-8faa-42d694fa620a",
+    "opponent_id": "765bc0b1-c86d-39e0-a86f-9e51b1211d80",
+    "created_at": "2020-07-17T09:53:04.215556Z",
+    "source": "",
+    "amount": "-0.0001",
+    "opening_balance": "0.3095",
+    "closing_balance": "0.3094",
+    "data": "ping",
+    "type": "transfer"
+}
+2020/07/17 17:53:04 delete withdraw address
+2020/07/17 17:53:10 create withdraw address {
+    "address_id": "2ce90074-ebbd-4344-9f90-44cc34b44bc3",
+    "asset_id": "815b0b1a-2764-3736-8faa-42d694fa620a",
+    "label": "Test Withdraw",
+    "destination": "1EQTwTQecXj1q54AJyhXXwLZTQEfnABoPD",
+    "fee": "0",
+    "dust": "0"
+}
+2020/07/17 17:53:10 do withdraw {
+    "snapshot_id": "fa321942-3550-48d5-8c99-5a2e237834d8",
+    "trace_id": "f16b9e72-4daa-486e-81b6-d66fdf7a509d",
+    "asset_id": "815b0b1a-2764-3736-8faa-42d694fa620a",
+    "opponent_id": "a39c3ffc-c308-4c12-b117-fb7410cdbb43",
+    "created_at": "2020-07-17T09:53:10.745702Z",
+    "source": "",
+    "amount": "-0.0001",
+    "opening_balance": "0.0001",
+    "closing_balance": "0",
+    "data": "pong",
+    "type": "transfer"
+}
+2020/07/17 17:53:11 delete withdraw address
+2020/07/17 17:53:13 read network [
+    {
+        "snapshot_id": "fa321942-3550-48d5-8c99-5a2e237834d8",
+        "trace_id": "f16b9e72-4daa-486e-81b6-d66fdf7a509d",
+        "user_id": "765bc0b1-c86d-39e0-a86f-9e51b1211d80",
+        "asset_id": "815b0b1a-2764-3736-8faa-42d694fa620a",
+        "opponent_id": "a39c3ffc-c308-4c12-b117-fb7410cdbb43",
+        "created_at": "2020-07-17T09:53:10.745702Z",
+        "source": "TRANSFER_INITIALIZED",
+        "amount": "-0.0001",
+        "opening_balance": "0",
+        "closing_balance": "0",
+        "data": "pong",
+        "type": "snapshot",
+        "asset": {
+            "asset_id": "815b0b1a-2764-3736-8faa-42d694fa620a",
+            "chain_id": "c6d0c728-2624-429b-8e0d-d9d19b6592fa",
+            "asset_key": "815b0b1a-2764-3736-8faa-42d694fa620a",
+            "symbol": "USDT",
+            "name": "Tether USD",
+            "icon_url": "https://mixin-images.zeromesh.net/ndNBEpObYs7450U08oAOMnSEPzN66SL8Mh-f2pPWBDeWaKbXTPUIdrZph7yj8Z93Rl8uZ16m7Qjz-E-9JFKSsJ-F=s128",
+            "price_usd": "0",
+            "change_usd": "0",
+            "balance": "0"
+        }
+    },
+    {
+        "snapshot_id": "d4a96432-0579-45a1-b321-84c60796c21a",
+        "asset_id": "815b0b1a-2764-3736-8faa-42d694fa620a",
+        "created_at": "2020-07-17T09:53:10.342659Z",
+        "source": "TRANSFER_INITIALIZED",
+        "amount": "-5.1512",
+        "opening_balance": "0",
+        "closing_balance": "0",
+        "type": "snapshot",
+        "asset": {
+            "asset_id": "815b0b1a-2764-3736-8faa-42d694fa620a",
+            "chain_id": "c6d0c728-2624-429b-8e0d-d9d19b6592fa",
+            "asset_key": "815b0b1a-2764-3736-8faa-42d694fa620a",
+            "symbol": "USDT",
+            "name": "Tether USD",
+            "icon_url": "https://mixin-images.zeromesh.net/ndNBEpObYs7450U08oAOMnSEPzN66SL8Mh-f2pPWBDeWaKbXTPUIdrZph7yj8Z93Rl8uZ16m7Qjz-E-9JFKSsJ-F=s128",
+            "price_usd": "0",
+            "change_usd": "0",
+            "balance": "0"
+        }
+    },
+    {
+        "snapshot_id": "b7f1e7a9-6303-4dc9-8701-189800353691",
+        "trace_id": "4274167d-0269-4fa3-aa0e-b69ad5d1881a",
+        "user_id": "765bc0b1-c86d-39e0-a86f-9e51b1211d80",
+        "asset_id": "815b0b1a-2764-3736-8faa-42d694fa620a",
+        "opponent_id": "a39c3ffc-c308-4c12-b117-fb7410cdbb43",
+        "created_at": "2020-07-17T09:53:06.463728Z",
+        "source": "TRANSFER_INITIALIZED",
+        "amount": "0.0001",
+        "opening_balance": "0",
+        "closing_balance": "0",
+        "data": "ping",
+        "type": "snapshot",
+        "asset": {
+            "asset_id": "815b0b1a-2764-3736-8faa-42d694fa620a",
+            "chain_id": "c6d0c728-2624-429b-8e0d-d9d19b6592fa",
+            "asset_key": "815b0b1a-2764-3736-8faa-42d694fa620a",
+            "symbol": "USDT",
+            "name": "Tether USD",
+            "icon_url": "https://mixin-images.zeromesh.net/ndNBEpObYs7450U08oAOMnSEPzN66SL8Mh-f2pPWBDeWaKbXTPUIdrZph7yj8Z93Rl8uZ16m7Qjz-E-9JFKSsJ-F=s128",
+            "price_usd": "0",
+            "change_usd": "0",
+            "balance": "0"
+        }
+    },
+    {
+        "snapshot_id": "87f61fd9-7f06-40c6-a5f4-0b6c989809c7",
+        "trace_id": "4274167d-0269-4fa3-aa0e-b69ad5d1881a",
+        "user_id": "a39c3ffc-c308-4c12-b117-fb7410cdbb43",
+        "asset_id": "815b0b1a-2764-3736-8faa-42d694fa620a",
+        "opponent_id": "765bc0b1-c86d-39e0-a86f-9e51b1211d80",
+        "created_at": "2020-07-17T09:53:04.215556Z",
+        "source": "TRANSFER_INITIALIZED",
+        "amount": "-0.0001",
+        "opening_balance": "0",
+        "closing_balance": "0",
+        "data": "ping",
+        "type": "snapshot",
+        "asset": {
+            "asset_id": "815b0b1a-2764-3736-8faa-42d694fa620a",
+            "chain_id": "c6d0c728-2624-429b-8e0d-d9d19b6592fa",
+            "asset_key": "815b0b1a-2764-3736-8faa-42d694fa620a",
+            "symbol": "USDT",
+            "name": "Tether USD",
+            "icon_url": "https://mixin-images.zeromesh.net/ndNBEpObYs7450U08oAOMnSEPzN66SL8Mh-f2pPWBDeWaKbXTPUIdrZph7yj8Z93Rl8uZ16m7Qjz-E-9JFKSsJ-F=s128",
+            "price_usd": "0",
+            "change_usd": "0",
+            "balance": "0"
+        }
+    },
+    {
+        "snapshot_id": "f3b8c08e-6ee4-4b25-aae7-fb13ebf428ef",
+        "trace_id": "8beee967-75c0-4c77-ac49-e70a198289de",
+        "user_id": "a39c3ffc-c308-4c12-b117-fb7410cdbb43",
+        "asset_id": "815b0b1a-2764-3736-8faa-42d694fa620a",
+        "opponent_id": "765bc0b1-c86d-39e0-a86f-9e51b1211d80",
+        "created_at": "2020-07-17T09:53:04.090405Z",
+        "source": "TRANSFER_INITIALIZED",
+        "amount": "0.0001",
+        "opening_balance": "0",
+        "closing_balance": "0",
+        "data": "pong",
+        "type": "snapshot",
+        "asset": {
+            "asset_id": "815b0b1a-2764-3736-8faa-42d694fa620a",
+            "chain_id": "c6d0c728-2624-429b-8e0d-d9d19b6592fa",
+            "asset_key": "815b0b1a-2764-3736-8faa-42d694fa620a",
+            "symbol": "USDT",
+            "name": "Tether USD",
+            "icon_url": "https://mixin-images.zeromesh.net/ndNBEpObYs7450U08oAOMnSEPzN66SL8Mh-f2pPWBDeWaKbXTPUIdrZph7yj8Z93Rl8uZ16m7Qjz-E-9JFKSsJ-F=s128",
+            "price_usd": "0",
+            "change_usd": "0",
+            "balance": "0"
+        }
+    }
+]

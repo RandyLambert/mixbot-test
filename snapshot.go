@@ -10,7 +10,7 @@ import (
 
 func doReadNetwork(ctx context.Context) {
 	//读snapshots,只读10条
-	snapshots, err := sdk.ReadNetwork(ctx, "965e5c6e-434c-3fa9-b780-c50f43cd955c", time.Time{}, "", 10, "")
+	snapshots, err := sdk.ReadNetwork(ctx, CNB, time.Time{}, "", 5, "")
 	if err != nil {
 		log.Panicln(err)
 	}
@@ -20,7 +20,7 @@ func doReadNetwork(ctx context.Context) {
 func doUserReadNetwork(ctx context.Context, user *sdk.User) {
 	//读某个usersnapshots,只读10条
 	//读取Mixin Network的公共快照snapshot_id。
-	snapshots, err := user.ReadNetwork(ctx, "965e5c6e-434c-3fa9-b780-c50f43cd955c", time.Time{}, "", 10)
+	snapshots, err := user.ReadNetwork(ctx, USDT, time.Time{}, "", 5)
 	if err != nil {
 		log.Panicln(err)
 	}
@@ -28,7 +28,7 @@ func doUserReadNetwork(ctx context.Context, user *sdk.User) {
 }
 //读多条
 func doReadSnapshots(ctx context.Context, user *sdk.User) {
-	snapshots, err := user.ReadSnapshots(ctx, "965e5c6e-434c-3fa9-b780-c50f43cd955c", time.Time{}, "", 10)
+	snapshots, err := user.ReadSnapshots(ctx, "", time.Time{}, "", 3)
 	if err != nil {
 		log.Panicln(err)
 	}
